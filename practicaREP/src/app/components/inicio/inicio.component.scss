@@ -17,19 +17,19 @@ h1 {
 /* Estilo para el formulario */
 .form-group {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 20px;
 }
   
-input[type="text"] {
-    flex: 1;
+input[type="text"],
+input[type="date"] {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-right: 10px;
 }
-  
+
 button {
     padding: 10px 15px;
     font-size: 16px;
@@ -71,7 +71,7 @@ li {
     margin-bottom: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+  
 li:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -80,11 +80,22 @@ li:hover {
 li:nth-child(odd) {
     background-color: #f1f1f1;
 }
-  
+
+.tarea-detalle {
+    flex: 1;
+}
+
+/* Contenedor de los botones */
+.botones {
+    display: flex;
+    gap: 10px;
+}
+
 li button {
     padding: 5px 10px;
     font-size: 14px;
     transition: background-color 0.3s;
+    width: auto;
 }
   
 /* Estilo específico para el botón de eliminar */
@@ -102,5 +113,21 @@ li button:not(.editarBoton):hover {
 }
 
 .editarBoton:hover {
-    background-color: #4b004b; /* Morado más oscuro */
+    background-color: #4d9dc7; /* Morado más oscuro */
+}
+
+/* Estilo para los detalles de la tarea */
+.tarea-detalle strong {
+    color: #333;
+}
+
+/* Mensaje de error */
+.mensaje-error {
+    color: #dc3545; /* Rojo para destacar el error */
+    background-color: #ffe6e6; /* Fondo rojo claro para visibilidad */
+    padding: 10px;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-align: center;
 }

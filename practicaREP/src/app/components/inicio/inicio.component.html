@@ -1,3 +1,4 @@
+<!---------
 
 <div class="container">
     <h1>Gestión de Tareas</h1>
@@ -18,4 +19,39 @@
       </ul>
     </div>
   </div>
+  ------>
+  <div class="container">
+    <h1>Gestión de Tareas</h1>
   
+    <div class="form-group">
+      <input type="text" [(ngModel)]="nuevaTarea.nombre" placeholder="Nombre de la tarea" />
+      <input type="text" [(ngModel)]="nuevaTarea.docente" placeholder="Nombre del docente" />
+      <input type="text" [(ngModel)]="nuevaTarea.curso" placeholder="Curso" />
+      <input type="date" [(ngModel)]="nuevaTarea.fechaEntrega" placeholder="Fecha de entrega" />
+      <input type="text" [(ngModel)]="nuevaTarea.descripcion" placeholder="Descripción" />
+      <button *ngIf="!editando" (click)="agregarTarea()">Agregar Tarea</button>
+      <button *ngIf="editando" (click)="confirmarEdicion()">Confirmar Edición</button>
+    </div>
+
+    <p *ngIf="mostrarMensajeError" class="mensaje-error">Todos los campos son obligatorios</p>
+  
+    
+    <div class="tareas-lista">
+      <h2>Lista de Tareas</h2>
+      <ul>
+        <li *ngFor="let tarea of tareas">
+          <div class="tarea-detalle">
+            <strong>Nombre:</strong> {{ tarea.nombre }}<br>
+            <strong>Docente:</strong> {{ tarea.docente }}<br>
+            <strong>Curso:</strong> {{ tarea.curso }}<br>
+            <strong>Fecha de Entrega:</strong> {{ tarea.fechaEntrega | date }}<br>
+            <strong>Descripción:</strong> {{ tarea.descripcion }}
+          </div>
+          <div class="botones">
+            <button class="editarBoton" (click)="editarTarea(tarea.id)">Editar</button>
+            <button (click)="eliminarTarea(tarea.id)">Eliminar</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+</div>
